@@ -67,6 +67,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
+    if (!storedToken) return;
     (async () => {
       await authenticate();
       if (storedToken) {
